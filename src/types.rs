@@ -423,7 +423,7 @@ pub trait ToRedisArgs: Sized {
     /// is used in some high level functions to intelligently switch
     /// between `GET` and `MGET` variants.
     fn is_single_arg(&self) -> bool {
-        true
+        &self.len() == 1 
     }
 
     /// This only exists internally as a workaround for the lack of
