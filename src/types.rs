@@ -422,8 +422,8 @@ pub trait ToRedisArgs: Sized {
     /// argument.  It returns false if it's zero or more than one.  This
     /// is used in some high level functions to intelligently switch
     /// between `GET` and `MGET` variants.
-    fn is_single_arg(&self) -> bool {
-        &self.len() == 1 
+    fn is_single_arg(args: &[Self]) -> bool {
+        args.len() == 1 
     }
 
     /// This only exists internally as a workaround for the lack of
