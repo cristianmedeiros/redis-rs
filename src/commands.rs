@@ -126,7 +126,7 @@ implement_commands! {
 
     /// Get the value of a key.  If key is a vec this becomes an `MGET`.
     fn get<K: ToRedisArgs>(key: K) {
-        cmd(if key.is_single_vec_arg() { "MGET" } else { "GET" }).arg(key)
+        cmd(if key.len() == 1 { "GET" } else { "MGET" }).arg(key)
     }
 
     /// Gets all keys matching pattern
