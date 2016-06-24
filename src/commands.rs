@@ -129,6 +129,7 @@ implement_commands! {
         cmd(if key.is_single_arg() { "GET" } else { "MGET" }).arg(key)
     }
 
+    /// The MGET
     fn mget<K: ToRedisArgs>(key: K) {
         cmd("MGET").arg(key)
     }
