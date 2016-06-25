@@ -521,7 +521,7 @@ impl<T: ToRedisArgs> ToRedisArgs for Vec<T> {
     }
 
     fn is_single_arg(&self) -> bool {
-        ToRedisArgs::is_single_vec_arg(*self)
+        ToRedisArgs::is_single_vec_arg(self)
     }
 }
 
